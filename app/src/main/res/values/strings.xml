@@ -37,7 +37,7 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="submit">Submit</string>
     <string name="login_as_customer">Login as Customer</string>
-    <string name="registar">Registar</string>
+    <string name="register">Register</string>
     <string name="customer">Customer</string>
     <string name="seller">Seller</string>
 

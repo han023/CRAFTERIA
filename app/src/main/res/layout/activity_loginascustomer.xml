@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background2"
     tools:context=".loginascustomer">
 
 
@@ -12,28 +13,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:orientation="vertical"
-        android:gravity="center"
         android:layout_marginTop="30sp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/app_name"
             android:textColor="@color/black"
             android:textSize="45sp"
-            android:textStyle="bold"
-            android:text="@string/app_name"/>
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/login_as_customer"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:text="@string/login_as_customer"/>
+            android:textSize="20sp" />
 
 
     </LinearLayout>
@@ -44,44 +45,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         android:paddingTop="40sp"
 
-        app:layout_constraintTop_toBottomOf="@+id/loginascustl1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/loginascustl1">
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:text="@string/email"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/loginascustemail"
-                android:layout_width="200sp"
-                android:paddingTop="30sp"
-                android:layout_height="wrap_content"
-                android:hint="@string/enter_your_email"/>
+        <EditText
+            android:id="@+id/loginascustemail"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_your_email"
+            android:paddingTop="30sp" />
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:paddingTop="20sp"
-                android:text="@string/password"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20sp"
+            android:text="@string/password"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/loginascustpassword"
-                android:layout_width="200sp"
-                android:layout_height="wrap_content"
-                android:paddingTop="30sp"
-                android:hint="@string/enter_your_password"/>
+        <EditText
+            android:id="@+id/loginascustpassword"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_your_password"
+            android:paddingTop="30sp" />
 
 
     </LinearLayout>
@@ -91,15 +92,14 @@
         android:id="@+id/loginascustforgetpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="30sp"
+        android:paddingTop="20sp"
+        android:text="@string/forget_password"
         android:textColor="@color/Dark_Blue"
         android:textSize="15sp"
-        android:paddingTop="20sp"
-        android:layout_marginRight="30sp"
-        android:text="@string/forget_password"
 
-        app:layout_constraintTop_toBottomOf="@+id/loginascustl2"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/loginascustl2" />
 
 
     <LinearLayout
@@ -108,45 +108,41 @@
 
         android:layout_marginBottom="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        >
+        app:layout_constraintStart_toStartOf="parent">
 
         <View
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/loginascustomer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login"
             android:backgroundTint="@color/black"
+            android:text="@string/login"
             android:textColor="@color/white" />
 
         <View
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/registarascustomer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/registar"
             android:backgroundTint="@color/black"
+            android:text="@string/register"
             android:textColor="@color/white" />
 
         <View
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
     </LinearLayout>
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

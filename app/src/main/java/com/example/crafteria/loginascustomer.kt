@@ -1,6 +1,8 @@
 package com.example.crafteria
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -16,13 +18,16 @@ import com.google.firebase.database.ValueEventListener
 class loginascustomer : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginascustomerBinding
-    val parentLayout = findViewById<View>(android.R.id.content)
+    lateinit var parentLayout:View;
+    lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginascustomerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        parentLayout = findViewById<View>(android.R.id.content);
 
         binding.loginascustomer.setOnClickListener{
 
@@ -30,7 +35,7 @@ class loginascustomer : AppCompatActivity() {
             val pass = binding.loginascustpassword.text.toString().trim()
 
 
-            if (email.isEmpty() && pass.isEmpty()){
+            if (email.isEmpty() || pass.isEmpty()){
                 Snackbar.make(parentLayout, "fill all fields", Snackbar.LENGTH_SHORT).show()
             } else if(!email.contains('@')){
                 Snackbar.make(parentLayout, "check your email", Snackbar.LENGTH_SHORT).show()
@@ -41,20 +46,14 @@ class loginascustomer : AppCompatActivity() {
                         if (task.isSuccessful) {
                             // Sign in success, update UI with the signed-in user's information
 
-                            constants.database.child("user").child(constants.auth.currentUser.toString())
-                                .addValueEventListener(object : ValueEventListener {
-                                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                                    // This method is called once with the initial value and again
-                                    // whenever data at this location is updated.
-                                    dataSnapshot.getValue(registarmodel::class.java)
-                                    startActivity(Intent(this@loginascustomer, MainActivity::class.java))
+                            val editor = sharedPreferences.edit()
+                            editor.putString("mobile", email.replace("@","")
+                                .replace(".","").replace("#",""))
+                            editor.apply()
 
-                                }
-                                override fun onCancelled(error: DatabaseError) {
-                                    // Failed to read value
-                                    Snackbar.make(parentLayout, "Try Again Later", Snackbar.LENGTH_SHORT).show()
-                                }
-                            })
+                            val intent = Intent(this, MainActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            startActivity(intent)
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -66,15 +65,8 @@ class loginascustomer : AppCompatActivity() {
 
         }
 
-
-        binding.loginascustforgetpassword.setOnClickListener{
-
-        }
-
         binding.registarascustomer.setOnClickListener{
-            val intent = Intent(this, registarasaseller::class.java)
-            intent.putExtra("type", "customer")
-            startActivity(intent)
+            startActivity(Intent(this@loginascustomer, registarasaseller::class.java))
         }
 
 

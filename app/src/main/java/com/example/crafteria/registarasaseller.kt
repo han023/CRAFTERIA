@@ -1,7 +1,9 @@
 
 package com.example.crafteria
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -14,21 +16,16 @@ import com.google.android.material.snackbar.Snackbar
 class registarasaseller : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegistarasasellerBinding
-    val parentLayout = findViewById<View>(android.R.id.content)
+    lateinit var parentLayout:View;
+    lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistarasasellerBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        parentLayout = findViewById<View>(android.R.id.content);
 
-        val data = intent.getStringExtra("type").toString()
-        if (data == "seller"){
-            binding.registartext.text = "Registar as a Seller";
-        }else{
-            binding.registartext.text = "Registar as a Customer";
-        }
-
-
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
         binding.registarasseller.setOnClickListener{
 
@@ -39,10 +36,13 @@ class registarasaseller : AppCompatActivity() {
             val password = binding.registarasasellerpassword.text.toString().trim()
             val confirmpass = binding.registarasasellerconpassword.text.toString().trim()
 
-            if (firstname.isEmpty() && lastname.isEmpty() && mobile.isEmpty() && email.isEmpty() && password.isEmpty() && confirmpass.isEmpty()){
+            if (firstname.isEmpty() || lastname.isEmpty() || mobile.isEmpty() || email.isEmpty() ||
+                password.isEmpty() || confirmpass.isEmpty()){
                 Snackbar.make(parentLayout, "Fill All Fields", Snackbar.LENGTH_SHORT).show()
             } else if (mobile.length != 11){
                 Snackbar.make(parentLayout, "Mobile number not correct", Snackbar.LENGTH_SHORT).show()
+            } else if(password.length < 6){
+                Snackbar.make(parentLayout, "Password atlest 6 character long", Snackbar.LENGTH_SHORT).show()
             } else if (password != confirmpass){
                 Snackbar.make(parentLayout, "Password does not match", Snackbar.LENGTH_SHORT).show()
             } else if (!email.contains('@')){
@@ -54,10 +54,21 @@ class registarasaseller : AppCompatActivity() {
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
                             // Sign in success, update UI with the signed-in user's information
-                            constants.database.child("user").child(constants.auth.currentUser.toString())
-                                .setValue(registarmodel(firstname,lastname,mobile,email,password,data)).addOnCompleteListener{
+
+                            val editor = sharedPreferences.edit()
+                            editor.putString("mobile", email.replace("@","")
+                                .replace(".","").replace("#",""))
+                            editor.apply()
+
+
+                            constants.database.child("user").child( sharedPreferences.getString("mobile","").toString() )
+                                .setValue(registarmodel(firstname,lastname,mobile,email,password,"")).addOnCompleteListener{
                                     if(task.isSuccessful){
-                                        updateui(data)
+
+                                        val intent = Intent(this, MainActivity::class.java)
+                                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                        startActivity(intent)
+
                                     } else{
                                         Snackbar.make(parentLayout, "Try Again Later", Snackbar.LENGTH_SHORT).show()
                                     }
@@ -76,12 +87,5 @@ class registarasaseller : AppCompatActivity() {
 
     }
 
-    fun updateui(type:String){
-        if (type == "seller"){
-            startActivity(Intent(this, profileofseller::class.java))
-        }else{
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-    }
 
 }

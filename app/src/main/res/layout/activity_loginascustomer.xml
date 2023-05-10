@@ -42,10 +42,10 @@
 
     <LinearLayout
         android:id="@+id/loginascustl2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:gravity="center"
+        android:gravity="start"
         android:orientation="vertical"
         android:paddingTop="40sp"
 
@@ -63,8 +63,11 @@
 
         <EditText
             android:id="@+id/loginascustemail"
-            android:layout_width="200sp"
+            android:layout_width="250sp"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:inputType="textWebEmailAddress"
             android:hint="@string/enter_your_email"
             android:paddingTop="30sp" />
 
@@ -79,7 +82,9 @@
 
         <EditText
             android:id="@+id/loginascustpassword"
-            android:layout_width="200sp"
+            android:layout_width="250sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:layout_height="wrap_content"
             android:hint="@string/enter_your_password"
             android:paddingTop="30sp" />
@@ -134,7 +139,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
-            android:text="@string/register"
+            android:text="@string/registarr"
             android:textColor="@color/white" />
 
         <View

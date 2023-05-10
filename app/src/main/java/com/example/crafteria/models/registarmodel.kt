@@ -6,5 +6,7 @@ data class registarmodel(
     val mobile: String,
     val email: String,
     val password : String,
-    val type: String
-    )
+    val address : String
+    ){
+    constructor() : this("", "","","","","")
+}

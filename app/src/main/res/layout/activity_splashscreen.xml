@@ -20,20 +20,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/cust"/>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-
-        <Button
-            android:id="@+id/cust"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/customer"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

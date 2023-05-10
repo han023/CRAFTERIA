@@ -1,5 +1,7 @@
 package com.example.crafteria.models
 
+import java.io.Serializable
+
 data class registarmodel(
     val firstname: String,
     val lastname: String,
@@ -7,6 +9,13 @@ data class registarmodel(
     val email: String,
     val password : String,
     val address : String
-    ){
-    constructor() : this("", "","","","","")
+    )  : Serializable {
+    constructor() : this(
+        firstname = "",
+        lastname = "",
+        mobile = "",
+        email = "",
+        password = "",
+        address = ""
+    )
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "856812212457",
+    "project_id": "crafting-7ea75",
+    "storage_bucket": "crafting-7ea75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856812212457:android:3ebf36d38ea18e18d16078",
+        "android_client_info": {
+          "package_name": "com.example.crafteria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856812212457-0gvifdkamhdlkfb5egu56j2sl7r2uq2i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZgS8f2pByC8DWSaAFXtsJuLcsz-oQUCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856812212457-0gvifdkamhdlkfb5egu56j2sl7r2uq2i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

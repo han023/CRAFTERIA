@@ -14,9 +14,12 @@
         android:theme="@style/Theme.CRAFTERIA"
         tools:targetApi="31">
         <activity
-            android:screenOrientation="portrait"
-            android:name=".splash"
-            android:exported="true" >
+            android:name=".updatecard"
+            android:exported="false" />
+        <activity
+            android:name=".Splash"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,53 +27,39 @@
             </intent-filter>
         </activity>
         <activity
-            android:screenOrientation="portrait"
-            android:name=".finalchecking"
-            android:exported="false" />
-        <activity
-            android:screenOrientation="portrait"
-            android:name=".newcard"
-            android:exported="false" />
-        <activity
-            android:screenOrientation="portrait"
-            android:name=".cards"
-            android:exported="false" />
-        <activity
-            android:screenOrientation="portrait"
-            android:name=".fullitemview"
-            android:exported="false" />
-        <activity
-            android:screenOrientation="portrait"
-            android:name=".subcat"
-            android:exported="false" />
-        <activity
-            android:screenOrientation="portrait"
-            android:name=".UpdateProfile"
-            android:exported="false" />
-        <activity
-            android:screenOrientation="portrait"
-            android:name=".Cart"
-            android:exported="false"
-            android:label="@string/title_activity_cart"
-            android:theme="@style/Theme.CRAFTERIA.NoActionBar" />
-        <activity
-            android:name=".loginascustomer"
+            android:name=".FinalChecking"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".registarasaseller"
+            android:name=".Newcard"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Cards"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FullItemView"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SubCat"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateProfile"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Loginascustomer"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Registarasaseller"
             android:exported="false"
             android:label="@string/title_activity_registarasaseller"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.CRAFTERIA.NoActionBar" />
-        <activity
-            android:name=".profileofseller"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".LoginAsSeller"
-            android:exported="false"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

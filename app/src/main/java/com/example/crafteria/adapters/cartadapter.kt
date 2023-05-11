@@ -2,6 +2,7 @@ package com.example.crafteria.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +10,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.crafteria.Cards
 import com.example.crafteria.R
-import com.example.crafteria.cards
-import com.example.crafteria.models.categorymodel
+import com.example.crafteria.helpers.constants
 import com.example.crafteria.models.subcatmodel
-import com.example.crafteria.subcat
 
-class cartadapter(private var items: ArrayList<subcatmodel>, private var context: Context)
+class cartadapter(private var items: ArrayList<subcatmodel>, private var context: Context,private var key: ArrayList<String>)
     : RecyclerView.Adapter<cartadapter.ListItemViewHolder>(){
 
     fun setfilteredlist(items: ArrayList<subcatmodel>){
@@ -41,8 +41,19 @@ class cartadapter(private var items: ArrayList<subcatmodel>, private var context
         holder.text.text = currentItem.title
         holder.price.text = currentItem.price
 
+        holder.del.setOnClickListener{
+            val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            constants.database.child("cart").child(sharedPreferences.getString("mobile","").toString())
+                .child(key[position]).removeValue().addOnCompleteListener {
+                    items.removeAt(position)
+                    key.removeAt(position)
+                    notifyItemRemoved(position)
+                    notifyDataSetChanged()
+                }
+        }
+
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, cards::class.java)
+            val intent = Intent(context, Cards::class.java)
             intent.putExtra("data",currentItem)
             context.startActivity(intent)
         }
@@ -57,6 +68,7 @@ class cartadapter(private var items: ArrayList<subcatmodel>, private var context
         val image: ImageView = itemView.findViewById(R.id.img)
         val text: TextView = itemView.findViewById(R.id.title)
         val price: TextView = itemView.findViewById(R.id.price)
+        val del: ImageView = itemView.findViewById(R.id.del)
     }
 
 

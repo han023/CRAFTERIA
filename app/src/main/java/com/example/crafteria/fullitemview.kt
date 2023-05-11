@@ -1,5 +1,6 @@
 package com.example.crafteria
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -18,6 +19,7 @@ class FullItemView : AppCompatActivity() {
     private lateinit var sharedPreferences : SharedPreferences
     private lateinit var parentLayout: View
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFullitemviewBinding.inflate(layoutInflater)

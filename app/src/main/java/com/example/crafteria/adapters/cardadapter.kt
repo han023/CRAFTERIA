@@ -8,16 +8,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.example.crafteria.FinalChecking
+import com.example.crafteria.Newcard
 import com.example.crafteria.R
-import com.example.crafteria.UpdateProfile
-import com.example.crafteria.finalchecking
+import com.example.crafteria.helpers.constants
 import com.example.crafteria.models.cardmodel
 import com.example.crafteria.models.subcatmodel
-import com.example.crafteria.subcat
+import com.example.crafteria.updatecard
 
 
-class cardadapter(private var items: ArrayList<cardmodel>, private var context: Context,private var data:subcatmodel)
+class cardadapter(private var items: ArrayList<cardmodel>, private var context: Context,private var data:subcatmodel,
+                    private var key:ArrayList<String>)
     : RecyclerView.Adapter<cardadapter.ListItemViewHolder>(){
 
 
@@ -33,8 +34,27 @@ class cardadapter(private var items: ArrayList<cardmodel>, private var context: 
         holder.name.text = currentItem.name
         holder.cardnumber.text = currentItem.cardnumber
 
+        holder.del.setOnClickListener {
+            val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            constants.database.child("card").child(sharedPreferences.getString("mobile","").toString())
+                .child(key[position]).removeValue().addOnCompleteListener {
+                    items.removeAt(position)
+                    key.removeAt(position)
+                    notifyItemRemoved(position)
+                    notifyDataSetChanged()
+                }
+        }
+
+        holder.up.setOnClickListener {
+            val intent = Intent(context, updatecard::class.java)
+            intent.putExtra("data", data)
+            intent.putExtra("card",currentItem)
+            intent.putExtra("key",key[position])
+            context.startActivity(intent)
+        }
+
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, finalchecking::class.java)
+            val intent = Intent(context, FinalChecking::class.java)
             intent.putExtra("data", data)
             intent.putExtra("card",currentItem)
             context.startActivity(intent)
@@ -50,6 +70,8 @@ class cardadapter(private var items: ArrayList<cardmodel>, private var context: 
         val exp: TextView = itemView.findViewById(R.id.exp)
         val cardnumber: TextView = itemView.findViewById(R.id.cardnumber)
         val name: TextView = itemView.findViewById(R.id.name)
+        val del:ImageView = itemView.findViewById(R.id.del)
+        val up:ImageView = itemView.findViewById(R.id.up)
     }
 
 

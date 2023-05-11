@@ -1,23 +1,18 @@
 package com.example.crafteria.adapters
 
-import android.annotation.SuppressLint
-import android.content.ClipData
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.crafteria.R
+import com.example.crafteria.SubCat
 import com.example.crafteria.models.categorymodel
-import com.example.crafteria.subcat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class categoryadapter(private var items: ArrayList<categorymodel>,private var context:Context) : RecyclerView.Adapter<categoryadapter.ListItemViewHolder>(){
@@ -45,7 +40,7 @@ class categoryadapter(private var items: ArrayList<categorymodel>,private var co
         holder.text.text = currentItem.title
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, subcat::class.java)
+            val intent = Intent(context, SubCat::class.java)
             intent.putExtra("cat",currentItem.title)
             context.startActivity(intent)
         }

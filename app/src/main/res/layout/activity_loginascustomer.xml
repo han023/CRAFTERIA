@@ -71,7 +71,7 @@
             android:textColorHint="@color/black"
             android:padding="20sp"
             android:background="@drawable/gradient"
-            android:inputType="textWebEmailAddress"
+            android:inputType="textPassword"
             android:hint="@string/enter_your_email"
             android:paddingTop="30sp" />
 
@@ -135,7 +135,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
             android:background="@drawable/rounded"
-            android:text="@string/registarr"
+            android:text="@string/register"
             android:textColor="@color/white" />
 
         <View

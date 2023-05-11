@@ -3,6 +3,7 @@ package com.example.crafteria.homefragment
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,7 @@ import com.example.crafteria.databinding.FragmentHomeBinding
 import com.example.crafteria.helpers.constants
 import com.example.crafteria.models.categorymodel
 import com.example.crafteria.models.subcatmodel
+import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -85,11 +87,13 @@ class CartFragment : Fragment() {
             .addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (isAdded && snapshot.exists()){
+                    val key = ArrayList<String>()
                     for (catsnap in snapshot.children){
+                        key.add(catsnap.key.toString());
                         val cat = catsnap.getValue(subcatmodel::class.java)
                         catdata.add(cat!!)
                     }
-                    this@CartFragment.adapter = cartadapter(catdata,this@CartFragment.requireContext())
+                    this@CartFragment.adapter = cartadapter(catdata,this@CartFragment.requireContext(),key)
                     binding.recyclerView.adapter = adapter
                 }
             }

@@ -56,7 +56,7 @@
             android:padding="10sp"
             android:background="@drawable/gradient"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/lname"
@@ -67,7 +67,7 @@
             android:padding="10sp"
             android:background="@drawable/gradient"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/email"
@@ -78,7 +78,7 @@
             android:padding="10sp"
             android:background="@drawable/gradient"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/phone"
@@ -89,7 +89,7 @@
             android:padding="10sp"
             android:background="@drawable/gradient"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/address"
@@ -100,7 +100,7 @@
             android:background="@drawable/gradient"
             android:text="@string/address"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
     </LinearLayout>
 
@@ -144,6 +144,22 @@
             android:textColor="@color/white"
             android:background="@drawable/rounded"
             android:text="@string/Logout"/>
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded"
+            android:text="@string/delete"/>
 
 
         <View

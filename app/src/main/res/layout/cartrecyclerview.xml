@@ -46,6 +46,20 @@
         </LinearLayout>
 
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/del"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="5sp"
+            android:src="@drawable/delete"
+            app:tint="@color/red" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -63,5 +63,6 @@
     <string name="enter_quantity">enter quantity</string>
     <string name="quantity">quantity</string>
     <string name="your_profile">Your profile</string>
+    <string name="delete">delete</string>
 
 </resources>

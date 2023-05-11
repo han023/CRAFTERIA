@@ -1,24 +1,20 @@
 package com.example.crafteria.homefragment
 
-import android.content.ClipData
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.crafteria.adapters.categoryadapter
 import com.example.crafteria.databinding.FragmentCatBinding
 import com.example.crafteria.helpers.constants
 import com.example.crafteria.models.categorymodel
-import com.example.crafteria.subcat
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class CatFragment : Fragment() {

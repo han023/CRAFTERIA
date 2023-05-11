@@ -9,35 +9,25 @@
     android:background="@color/colorPrimary"
     android:layout_height="150dp">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        android:orientation="vertical"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
         android:gravity="center">
-
-        <TextView
-            android:id="@+id/cardnumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="123456789"
-            android:textColor="@color/black"
-            android:textSize="20sp"/>
-
-        <View
-            android:layout_width="180sp"
-            android:layout_height="1dp"
-            android:background="@color/black"/>
 
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10sp"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/cardnumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="123456789"
@@ -46,16 +36,60 @@
 
             <View
                 android:layout_width="180sp"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_height="1dp"
+                android:background="@color/black"/>
 
-            <TextView
-                android:id="@+id/exp"
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="123456789"
-                android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:layout_margin="10sp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="123456789"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+                <View
+                    android:layout_width="180sp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="123456789"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/del"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/delete"
+                app:tint="@color/red" />
+
+            <ImageView
+                android:id="@+id/up"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/edit"
+                app:tint="@color/colorPrimary" />
 
         </LinearLayout>
 

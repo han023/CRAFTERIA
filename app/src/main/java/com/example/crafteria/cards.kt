@@ -52,11 +52,13 @@ class Cards : AppCompatActivity() {
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()){
+                        val key = ArrayList<String>()
                         for (catsnap in snapshot.children){
+                            key.add(catsnap.key.toString());
                             val cat = catsnap.getValue(cardmodel::class.java)
                             catdata.add(cat!!)
                         }
-                        adapter = cardadapter(catdata,this@Cards,data)
+                        adapter = cardadapter(catdata,this@Cards,data,key)
                         binding.recyclerView.adapter = adapter
                     }
                 }

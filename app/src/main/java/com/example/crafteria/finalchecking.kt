@@ -45,6 +45,25 @@ class FinalChecking : AppCompatActivity() {
             .into(binding.img)
 
 
+        binding.plus.setOnClickListener {
+            val data1 = binding.quan.text.toString().toInt()+1
+            var pr = binding.price.text.toString().toInt()
+            pr = pr+data.price.toInt()
+            binding.quan.setText( data1.toString() )
+            binding.price.setText(pr.toString())
+        }
+
+        binding.min.setOnClickListener {
+            var data1 = binding.quan.text.toString().toInt()
+            if (data1 > 1){
+                var pr = binding.price.text.toString().toInt()
+                pr = pr-data.price.toInt()
+                data1 = data1-1
+                binding.quan.setText( data1.toString() )
+                binding.price.setText(pr.toString())
+            }
+        }
+
         binding.addtocart.setOnClickListener {
             val ordermodel = ordermodel(
                 carddata.name,
@@ -54,7 +73,7 @@ class FinalChecking : AppCompatActivity() {
                 data.img,
                 data.title,
                 data.price,
-                binding.quantity.text.toString().trim()
+                binding.quan.text.toString().trim()
             )
             val key = constants.database.child("order")
                 .child(sharedPreferences.getString("mobile", "").toString()).push()

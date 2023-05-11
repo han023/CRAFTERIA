@@ -10,10 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.crafteria.FullItemView
 import com.example.crafteria.R
-import com.example.crafteria.UpdateProfile
-import com.example.crafteria.fullitemview
-import com.example.crafteria.models.categorymodel
 import com.example.crafteria.models.subcatmodel
 
 
@@ -43,7 +41,7 @@ class subcatadapter(private var items: ArrayList<subcatmodel>,private var contex
         holder.text.text = "Add to cart"
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, fullitemview::class.java)
+            val intent = Intent(context, FullItemView::class.java)
             intent.putExtra("data", currentItem)
             context.startActivity(intent)
         }

@@ -15,7 +15,7 @@ class UpdateProfile : AppCompatActivity() {
 
     lateinit var binding : ActivityUpdateCartBinding
     lateinit var sharedPreferences : SharedPreferences
-    lateinit var parentLayout: View;
+    private lateinit var parentLayout: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +23,7 @@ class UpdateProfile : AppCompatActivity() {
         setContentView(binding.root)
 
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        parentLayout = findViewById<View>(android.R.id.content);
+        parentLayout = findViewById(android.R.id.content)
 
 
         val data = intent.getSerializableExtra("data") as registarmodel
@@ -38,9 +38,7 @@ class UpdateProfile : AppCompatActivity() {
             val lastname = binding.registarasasellerlname.text.toString().trim()
             val mobile = binding.registarasasellerno.text.toString().trim()
             val address = binding.address.text.toString().trim()
-
-
-                        constants.database.child("user").child( sharedPreferences.getString("mobile","").toString() )
+            constants.database.child("user").child( sharedPreferences.getString("mobile","").toString() )
                             .setValue(registarmodel(firstname,lastname,mobile,data.email,data.password,address)).addOnCompleteListener{
                                 if(it.isSuccessful){
                                     val intent = Intent(this, MainActivity::class.java)

@@ -7,23 +7,22 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.crafteria.databinding.ActivityMainBinding
 import com.example.crafteria.databinding.ActivityRegistarasasellerBinding
 import com.example.crafteria.helpers.constants
 import com.example.crafteria.models.registarmodel
 import com.google.android.material.snackbar.Snackbar
 
-class registarasaseller : AppCompatActivity() {
+class Registarasaseller : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegistarasasellerBinding
-    lateinit var parentLayout:View;
+    private lateinit var parentLayout:View
     lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistarasasellerBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        parentLayout = findViewById<View>(android.R.id.content);
+        parentLayout = findViewById(android.R.id.content)
 
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 

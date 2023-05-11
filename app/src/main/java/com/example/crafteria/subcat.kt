@@ -1,7 +1,6 @@
 package com.example.crafteria
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.GridLayoutManager
@@ -14,7 +13,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import java.util.*
 
-class subcat : AppCompatActivity() {
+class SubCat : AppCompatActivity() {
 
     lateinit var binding: ActivitySubcatBinding
     private lateinit var catdata : ArrayList<subcatmodel>
@@ -46,7 +45,7 @@ class subcat : AppCompatActivity() {
         binding.recyclerView.setHasFixedSize(true)
 
 
-        catdata = arrayListOf<subcatmodel>()
+        catdata = arrayListOf()
         getdata()
 
 
@@ -78,15 +77,15 @@ class subcat : AppCompatActivity() {
                     for (catsnap in snapshot.children){
                         val cat = subcatmodel()
 
-                        val data: HashMap<String, Any> = catsnap.getValue() as HashMap<String, Any>
+                        val data: HashMap<String, Any> = catsnap.value as HashMap<String, Any>
                         cat.img = data["img"].toString()
                         cat.price = data["price"].toString()
                         cat.title = data["title"].toString()
 
 
-                        catdata.add(cat!!)
+                        catdata.add(cat)
                     }
-                    adapter = subcatadapter(catdata,this@subcat)
+                    adapter = subcatadapter(catdata,this@SubCat)
                     binding.recyclerView.adapter = adapter
                 }
             }

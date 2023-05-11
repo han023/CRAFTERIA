@@ -14,10 +14,10 @@ import com.example.crafteria.models.ordermodel
 import com.example.crafteria.models.subcatmodel
 import com.google.android.material.snackbar.Snackbar
 
-class finalchecking : AppCompatActivity() {
+class FinalChecking : AppCompatActivity() {
 
     private lateinit var binding:ActivityFinalcheckingBinding
-    lateinit var parentLayout: View;
+    private lateinit var parentLayout: View
     lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,23 +26,23 @@ class finalchecking : AppCompatActivity() {
         setContentView(binding.root)
 
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        parentLayout = findViewById<View>(android.R.id.content);
+        parentLayout = findViewById(android.R.id.content)
 
         val data = intent.getSerializableExtra("data") as subcatmodel
         val carddata = intent.getSerializableExtra("card") as cardmodel
 
-        binding.exp.setText(carddata.exp)
-        binding.cardnumber.setText(carddata.cardnumber)
-        binding.name.setText(carddata.name)
+        binding.exp.text = carddata.exp
+        binding.cardnumber.text = carddata.cardnumber
+        binding.name.text = carddata.name
 
-        binding.title.setText(data.title)
-        binding.price.setText(data.price)
+        binding.title.text = data.title
+        binding.price.text = data.price
         Glide
             .with(this)
             .load(data.img)
             .centerCrop()
             .placeholder(R.drawable.cart)
-            .into(binding.img);
+            .into(binding.img)
 
 
         binding.addtocart.setOnClickListener {

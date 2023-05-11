@@ -7,18 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.crafteria.databinding.ActivityLoginascustomerBinding
-import com.example.crafteria.databinding.ActivityRegistarasasellerBinding
 import com.example.crafteria.helpers.constants
-import com.example.crafteria.models.registarmodel
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
 
-class loginascustomer : AppCompatActivity() {
+class Loginascustomer : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginascustomerBinding
-    lateinit var parentLayout:View;
+    private lateinit var parentLayout:View
     lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +22,7 @@ class loginascustomer : AppCompatActivity() {
         setContentView(binding.root)
 
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        parentLayout = findViewById<View>(android.R.id.content);
+        parentLayout = findViewById(android.R.id.content)
 
         binding.loginascustomer.setOnClickListener{
 
@@ -66,7 +61,7 @@ class loginascustomer : AppCompatActivity() {
         }
 
         binding.registarascustomer.setOnClickListener{
-            startActivity(Intent(this@loginascustomer, registarasaseller::class.java))
+            startActivity(Intent(this@Loginascustomer, Registarasaseller::class.java))
         }
 
 

@@ -9,15 +9,14 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.example.crafteria.databinding.ActivityFullitemviewBinding
 import com.example.crafteria.helpers.constants
-import com.example.crafteria.models.registarmodel
 import com.example.crafteria.models.subcatmodel
 import com.google.android.material.snackbar.Snackbar
 
-class fullitemview : AppCompatActivity() {
+class FullItemView : AppCompatActivity() {
 
     private lateinit var binding:ActivityFullitemviewBinding
-    lateinit var sharedPreferences : SharedPreferences
-    lateinit var parentLayout: View;
+    private lateinit var sharedPreferences : SharedPreferences
+    private lateinit var parentLayout: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +24,7 @@ class fullitemview : AppCompatActivity() {
         setContentView(binding.root)
 
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        parentLayout = findViewById<View>(android.R.id.content);
+        parentLayout = findViewById(android.R.id.content)
         val data = intent.getSerializableExtra("data") as subcatmodel
 
         Glide
@@ -33,10 +32,10 @@ class fullitemview : AppCompatActivity() {
             .load(data.img)
             .centerCrop()
             .placeholder(R.drawable.cart)
-            .into(binding.mainimg);
+            .into(binding.mainimg)
 
-        binding.title.setText(data.title)
-        binding.price.setText(data.price)
+        binding.title.text = data.title
+        binding.price.text = data.price
 
         binding.addtocart.setOnClickListener {
             val key = constants.database.child("cart").child( sharedPreferences.getString("mobile","").toString()).push()
@@ -46,7 +45,7 @@ class fullitemview : AppCompatActivity() {
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                     startActivity(intent)
 
-                    Snackbar.make(parentLayout, "Added sucessfully", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(parentLayout, "Added successfully", Snackbar.LENGTH_SHORT).show()
                 }else{
                     Snackbar.make(parentLayout, "Try Again Later", Snackbar.LENGTH_SHORT).show()
                 }

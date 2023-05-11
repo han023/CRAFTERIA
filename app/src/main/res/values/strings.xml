@@ -1,14 +1,11 @@
 <resources>
     <string name="app_name">Crafting</string>
-
-    <string name="login_as_a_seller">Login as a Seller</string>
     <string name="email">Email</string>
     <string name="enter_your_email">Enter your email</string>
     <string name="password">Password</string>
     <string name="enter_your_password">Enter your password</string>
     <string name="forget_password">Forget Password</string>
     <string name="login">Login</string>
-    <string name="name_of_artisan">Name of Artisan</string>
     <string name="own_product_details">Own Product Details</string>
     <string name="recent_add_product_details">Recent add Product \nDetails</string>
     <string name="view_ratings">View Ratings</string>
@@ -37,11 +34,10 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="submit">Submit</string>
     <string name="login_as_customer">Login as Customer</string>
-    <string name="registar">Registar</string>
     <string name="customer">Customer</string>
     <string name="seller">Seller</string>
     <string name="register_as_customer">Register As Customer</string>
-    <string name="registarr">Registar</string>
+    <string name="register">Registar</string>
     <string name="home">Home</string>
     <string name="account">Account</string>
     <string name="cart">Cart</string>

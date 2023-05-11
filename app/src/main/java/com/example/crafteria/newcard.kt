@@ -9,14 +9,13 @@ import android.view.View
 import com.example.crafteria.databinding.ActivityNewcardBinding
 import com.example.crafteria.helpers.constants
 import com.example.crafteria.models.cardmodel
-import com.example.crafteria.models.registarmodel
 import com.example.crafteria.models.subcatmodel
 import com.google.android.material.snackbar.Snackbar
 
-class newcard : AppCompatActivity() {
+class Newcard : AppCompatActivity() {
 
     private lateinit var binding : ActivityNewcardBinding
-    lateinit var parentLayout: View;
+    private lateinit var parentLayout: View
     lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +25,7 @@ class newcard : AppCompatActivity() {
 
         val data = intent.getSerializableExtra("data") as subcatmodel
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        parentLayout = findViewById<View>(android.R.id.content);
+        parentLayout = findViewById(android.R.id.content)
 
         binding.add.setOnClickListener {
 
@@ -43,7 +42,7 @@ class newcard : AppCompatActivity() {
                 val key = constants.database.child("card").child(sharedPreferences.getString("mobile","").toString()).push()
                 key.setValue(cardmodel).addOnCompleteListener{
                     if (it.isSuccessful){
-                        val intent = Intent(this,cards::class.java)
+                        val intent = Intent(this,Cards::class.java)
                         intent.putExtra("data", data)
                         startActivity(intent)
 

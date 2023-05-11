@@ -7,17 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.crafteria.adapters.cardadapter
-import com.example.crafteria.adapters.cartadapter
 import com.example.crafteria.databinding.ActivityCardsBinding
 import com.example.crafteria.helpers.constants
 import com.example.crafteria.models.cardmodel
-import com.example.crafteria.models.registarmodel
 import com.example.crafteria.models.subcatmodel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 
-class cards : AppCompatActivity() {
+class Cards : AppCompatActivity() {
 
     private lateinit var binding:ActivityCardsBinding
     lateinit var sharedPreferences : SharedPreferences
@@ -37,12 +35,12 @@ class cards : AppCompatActivity() {
         binding.recyclerView.setHasFixedSize(true)
 
 
-        catdata = arrayListOf<cardmodel>()
+        catdata = arrayListOf()
         getdata()
 
 
         binding.newcard.setOnClickListener{
-            val intent = Intent(this,newcard::class.java)
+            val intent = Intent(this,Newcard::class.java)
             intent.putExtra("data", data)
             startActivity(intent)
         }
@@ -58,7 +56,7 @@ class cards : AppCompatActivity() {
                             val cat = catsnap.getValue(cardmodel::class.java)
                             catdata.add(cat!!)
                         }
-                        adapter = cardadapter(catdata,this@cards,data)
+                        adapter = cardadapter(catdata,this@Cards,data)
                         binding.recyclerView.adapter = adapter
                     }
                 }

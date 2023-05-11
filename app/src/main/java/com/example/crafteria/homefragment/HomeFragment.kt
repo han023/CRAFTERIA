@@ -17,10 +17,26 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
 
+        binding.profile.setOnClickListener {
+            replacefragment(AccountFragment())
+        }
+        binding.cart.setOnClickListener {
+            replacefragment(CartFragment())
+        }
+        binding.delivery.setOnClickListener {  }
+        binding.payment.setOnClickListener {  }
 
         return binding.root
     }
 
+    private fun replacefragment(fragment:Fragment){
+
+        val fragmentmanger = requireActivity().supportFragmentManager
+        val fragmenttransaction = fragmentmanger.beginTransaction()
+        fragmenttransaction.replace(R.id.framlayout,fragment)
+        fragmenttransaction.commit()
+
+    }
 
 }
 

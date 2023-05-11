@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@color/white"
     tools:context=".UpdateProfile">
 
 
@@ -26,6 +26,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:hint="@string/first_name"
+            android:padding="10sp"
+            android:background="@drawable/gradient"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
@@ -34,6 +36,8 @@
             android:layout_width="250sp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
+            android:padding="10sp"
+            android:background="@drawable/gradient"
             android:hint="@string/last_name"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
@@ -43,6 +47,8 @@
             android:layout_width="250sp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
+            android:padding="10sp"
+            android:background="@drawable/gradient"
             android:hint="@string/mobile_number"
             android:inputType="number"
             android:textColor="@color/black"
@@ -52,6 +58,8 @@
             android:id="@+id/address"
             android:layout_width="250sp"
             android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:background="@drawable/gradient"
             android:layout_marginTop="20sp"
             android:hint="@string/address"
             android:textColor="@color/black"
@@ -66,9 +74,9 @@
         android:layout_width="250sp"
         android:layout_height="wrap_content"
         android:text="@string/update"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/colorPrimary"
         android:textColor="@color/white"
-
+        android:background="@drawable/rounded"
         android:layout_marginBottom="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

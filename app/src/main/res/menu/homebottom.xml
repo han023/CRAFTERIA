@@ -12,13 +12,8 @@
         android:title="@string/category"/>
 
     <item
-        android:id="@+id/search"
-        android:icon="@drawable/search"
-        android:title="@string/search"/>
-
-    <item
         android:id="@+id/cart"
-        android:icon="@drawable/cart"
+        android:icon="@drawable/carthome"
         android:title="@string/cart"/>
 
 

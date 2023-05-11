@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.home -> replacefragment(HomeFragment())
                 R.id.cat -> replacefragment(CatFragment())
-                R.id.search -> replacefragment(SearchFragment())
                 R.id.cart -> replacefragment(CartFragment())
                 R.id.account -> replacefragment(AccountFragment())
 

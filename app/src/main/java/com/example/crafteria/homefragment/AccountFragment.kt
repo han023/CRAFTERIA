@@ -11,10 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.example.crafteria.Loginascustomer
-import com.example.crafteria.MainActivity
-import com.example.crafteria.R
-import com.example.crafteria.UpdateProfile
+import com.example.crafteria.*
 import com.example.crafteria.databinding.FragmentAccountBinding
 import com.example.crafteria.databinding.FragmentHomeBinding
 import com.example.crafteria.helpers.constants
@@ -51,7 +48,7 @@ class AccountFragment : Fragment() {
                         binding.lname.text = "Last name: "+ data?.lastname
                         binding.phone.text = "No: "+ data?.mobile
                         binding.email.text = "Email: "+ data?.email
-                        binding.address.text = "Address: "+ data?.address
+                        binding.address.text = "Address: "+ data?.address!!.replace(",@#","\n")
 
                     }
 
@@ -86,36 +83,41 @@ class AccountFragment : Fragment() {
         }
 
 
+        binding.def.setOnClickListener {
+            val intent = Intent(requireContext(),updateaddress::class.java)
+            intent.putExtra("data", data)
+            startActivity(intent)
+        }
+
         binding.delete.setOnClickListener {
             constants.auth.currentUser?.delete()
                 ?.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
 
                         constants.database.child("order")
-                            .child( sharedPreferences.getString("mobile","").toString() ).removeValue().addOnCompleteListener {
-                                if (it.isSuccessful){
+                            .child( sharedPreferences.getString("mobile","").toString() ).removeValue()
 
-                                    val editor = sharedPreferences.edit()
-                                    editor.remove("mobile")
-                                    editor.apply()
 
                                  constants.database.child("card").child(sharedPreferences.getString("mobile","").toString()).removeValue()
                                     constants.database.child("cart").child(sharedPreferences.getString("mobile","").toString()).removeValue()
                                     constants.database.child("user").child(sharedPreferences.getString("mobile","").toString()).removeValue()
                                     Snackbar.make(parentLayout, "Deleted sucessfully", Snackbar.LENGTH_SHORT).show()
 
+                        val editor = sharedPreferences.edit()
+                        editor.remove("mobile")
+                        editor.apply()
 
                                     val intent = Intent(requireActivity(), Loginascustomer::class.java)
                                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                                     startActivity(intent)
-                                }
-                            }
 
 
                     } else {
                         Snackbar.make(parentLayout, "Try again later", Snackbar.LENGTH_SHORT).show()
                     }
                 }
+
+
 
         }
 

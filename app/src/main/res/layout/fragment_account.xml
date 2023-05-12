@@ -36,7 +36,7 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/accountl2"
+        app:layout_constraintBottom_toTopOf="@+id/def"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
@@ -44,7 +44,7 @@
         <ImageView
             android:layout_width="150sp"
             android:layout_height="150sp"
-            android:src="@drawable/profilehome"
+            android:src="@drawable/profile"
             android:contentDescription="TODO" />
 
         <TextView
@@ -104,6 +104,19 @@
 
     </LinearLayout>
 
+
+    <Button
+        android:id="@+id/def"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded"
+        android:text="@string/default_address"
+        android:layout_margin="20sp"
+        app:layout_constraintBottom_toTopOf="@id/accountl2"
+        app:layout_constraintTop_toBottomOf="@id/accountl1"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 
     <LinearLayout

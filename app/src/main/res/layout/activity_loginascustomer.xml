@@ -71,7 +71,7 @@
             android:textColorHint="@color/black"
             android:padding="20sp"
             android:background="@drawable/gradient"
-            android:inputType="textPassword"
+            android:inputType="textWebEmailAddress"
             android:hint="@string/enter_your_email"
             android:paddingTop="30sp" />
 
@@ -92,6 +92,7 @@
             android:textColorHint="@color/black"
             android:padding="20sp"
             android:background="@drawable/gradient"
+            android:inputType="textPassword"
             android:layout_height="wrap_content"
             android:hint="@string/enter_your_password"
             android:paddingTop="30sp" />

@@ -30,16 +30,14 @@ class UpdateProfile : AppCompatActivity() {
         binding.registarasasellerfname.setText(data.firstname)
         binding.registarasasellerlname.setText(data.lastname)
         binding.registarasasellerno.setText(data.mobile)
-        binding.address.setText(data.address)
 
 
         binding.registarasseller.setOnClickListener {
             val firstname = binding.registarasasellerfname.text.toString().trim()
             val lastname = binding.registarasasellerlname.text.toString().trim()
             val mobile = binding.registarasasellerno.text.toString().trim()
-            val address = binding.address.text.toString().trim()
             constants.database.child("user").child( sharedPreferences.getString("mobile","").toString() )
-                            .setValue(registarmodel(firstname,lastname,mobile,data.email,data.password,address)).addOnCompleteListener{
+                            .setValue(registarmodel(firstname,lastname,mobile,data.email,data.password,data.address)).addOnCompleteListener{
                                 if(it.isSuccessful){
                                     val intent = Intent(this, MainActivity::class.java)
                                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK

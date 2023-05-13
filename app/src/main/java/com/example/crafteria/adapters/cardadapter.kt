@@ -66,6 +66,7 @@ class cardadapter(private var items: ArrayList<cardmodel>, private var context: 
 
 
     class ListItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        // item view for recycler view
         val exp: TextView = itemView.findViewById(R.id.exp)
         val cardnumber: TextView = itemView.findViewById(R.id.cardnumber)
         val name: TextView = itemView.findViewById(R.id.name)

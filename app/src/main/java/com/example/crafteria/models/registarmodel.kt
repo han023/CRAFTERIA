@@ -2,6 +2,7 @@ package com.example.crafteria.models
 
 import java.io.Serializable
 
+// data model for stroing and receiving data from firebase
 data class registarmodel(
     val firstname: String,
     val lastname: String,

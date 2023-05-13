@@ -38,6 +38,7 @@ class Newcard : AppCompatActivity() {
             val cvv = binding.cvv.text.toString().trim()
             val exp = binding.exp.text.toString().trim()
 
+            // checking validation
             if (name.isEmpty() || number.isEmpty()|| cvv.isEmpty() || exp.isEmpty()){
                 Snackbar.make(parentLayout, "fill all fields", Snackbar.LENGTH_SHORT).show()
             } else if(cvv.length != 3){
@@ -51,6 +52,7 @@ class Newcard : AppCompatActivity() {
             }else{
                 val cardmodel = cardmodel(name, number, cvv, exp)
 
+                // storing data on firebase at differnt key using push function
                 val key = constants.database.child("card").child(sharedPreferences.getString("mobile","").toString()).push()
                 key.setValue(cardmodel).addOnCompleteListener{
                     if (it.isSuccessful){

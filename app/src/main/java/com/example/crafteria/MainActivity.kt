@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setOnItemSelectedListener {
 
+            // bottom navigation
             when(it.itemId){
 
                 R.id.home -> replacefragment(HomeFragment())
@@ -49,6 +50,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun replacefragment(fragment:Fragment){
 
+        // function for replacing fragment in the fargment
+        // using fragment manger
         val fragmentmanger = supportFragmentManager
         val fragmenttransaction = fragmentmanger.beginTransaction()
         fragmenttransaction.replace(R.id.framlayout,fragment)

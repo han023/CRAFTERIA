@@ -56,6 +56,7 @@ class SubCat : AppCompatActivity() {
     }
 
     private fun filterlist(newText: String?) {
+        // filtering data with respect to search view
         if(newText != null){
             val filterlist = ArrayList<subcatmodel>()
             for(i in catdata){
@@ -72,6 +73,7 @@ class SubCat : AppCompatActivity() {
     }
 
     private fun getdata() {
+        // getting data from firebase
         constants.database.child("subcategory").child(type).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()){

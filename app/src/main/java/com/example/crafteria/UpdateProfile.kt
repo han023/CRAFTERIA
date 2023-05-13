@@ -36,9 +36,11 @@ class UpdateProfile : AppCompatActivity() {
 
        // take action on register button ... register as seller is actually, customer
         binding.registarasseller.setOnClickListener {
+            // storing data in variables
             val firstname = binding.registarasasellerfname.text.toString().trim()
             val lastname = binding.registarasasellerlname.text.toString().trim()
             val mobile = binding.registarasasellerno.text.toString().trim()
+            // update data on firebase
             constants.database.child("user").child( sharedPreferences.getString("mobile","").toString() )
                             .setValue(registarmodel(firstname,lastname,mobile,data.email,data.password,data.address)).addOnCompleteListener{
                                 if(it.isSuccessful){

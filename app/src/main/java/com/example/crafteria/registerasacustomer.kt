@@ -28,6 +28,7 @@ class Registarasaseller : AppCompatActivity() {
 
         binding.registarasseller.setOnClickListener{
 
+            // stroing data in variables
             val firstname = binding.registarasasellerfname.text.toString().trim()
             val lastname = binding.registarasasellerlname.text.toString().trim()
             val mobile = binding.registarasasellerno.text.toString().trim()

@@ -31,6 +31,7 @@ class cartadapter(private var items: ArrayList<subcatmodel>, private var context
     override fun onBindViewHolder(holder: ListItemViewHolder, position: Int) {
         val currentItem = items[position]
 
+        // downloading image from url that is store in the firebase data using glide
         Glide
             .with(holder.itemView)
             .load(currentItem.img)
@@ -66,6 +67,7 @@ class cartadapter(private var items: ArrayList<subcatmodel>, private var context
 
 
     class ListItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        // item view for recycler view
         val image: ImageView = itemView.findViewById(R.id.img)
         val text: TextView = itemView.findViewById(R.id.title)
         val price: TextView = itemView.findViewById(R.id.price)

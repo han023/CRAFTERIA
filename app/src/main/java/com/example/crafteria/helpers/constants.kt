@@ -7,6 +7,7 @@ import com.google.firebase.ktx.Firebase
 
 class constants {
 
+    // gobal constant for firebase auth and firebase database
     companion object{
 
         var auth: FirebaseAuth = Firebase.auth

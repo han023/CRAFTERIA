@@ -12,6 +12,7 @@ import com.example.crafteria.models.registarmodel
 import com.google.android.material.snackbar.Snackbar
 
 class UpdateProfile : AppCompatActivity() {
+    // class variables
 
     lateinit var binding : ActivityUpdateCartBinding
     lateinit var sharedPreferences : SharedPreferences
@@ -21,17 +22,19 @@ class UpdateProfile : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityUpdateCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // preferences variable
 
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         parentLayout = findViewById(android.R.id.content)
 
 
         val data = intent.getSerializableExtra("data") as registarmodel
+        // update values
         binding.registarasasellerfname.setText(data.firstname)
         binding.registarasasellerlname.setText(data.lastname)
         binding.registarasasellerno.setText(data.mobile)
 
-
+       // take action on register button ... register as seller is actually, customer
         binding.registarasseller.setOnClickListener {
             val firstname = binding.registarasasellerfname.text.toString().trim()
             val lastname = binding.registarasasellerlname.text.toString().trim()

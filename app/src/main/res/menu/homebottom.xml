@@ -22,4 +22,9 @@
         android:icon="@drawable/person"
         android:title="@string/account"/>
 
+    <item
+        android:id="@+id/address"
+        android:icon="@drawable/address"
+        android:title="@string/address"/>
+
 </menu>

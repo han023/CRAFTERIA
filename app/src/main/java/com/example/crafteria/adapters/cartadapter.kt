@@ -42,14 +42,15 @@ class cartadapter(private var items: ArrayList<subcatmodel>, private var context
         holder.price.text = currentItem.price
 
         holder.del.setOnClickListener{
-            val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-            constants.database.child("cart").child(sharedPreferences.getString("mobile","").toString())
-                .child(key[position]).removeValue().addOnCompleteListener {
-                    items.removeAt(position)
-                    key.removeAt(position)
-                    notifyItemRemoved(position)
-                    notifyDataSetChanged()
-                }
+            if (position != RecyclerView.NO_POSITION) {
+                val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+                constants.database.child("cart").child(sharedPreferences.getString("mobile","").toString())
+                    .child(key[position]).removeValue().addOnCompleteListener {
+                        items.clear()
+                        key.clear()
+                        notifyDataSetChanged()
+                    }
+            }
         }
 
         holder.itemView.setOnClickListener {

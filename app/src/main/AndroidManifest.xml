@@ -14,9 +14,6 @@
         android:theme="@style/Theme.CRAFTERIA"
         tools:targetApi="31">
         <activity
-            android:name=".updateaddress"
-            android:exported="false" />
-        <activity
             android:name=".updatecard"
             android:exported="false" />
         <activity

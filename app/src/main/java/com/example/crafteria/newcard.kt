@@ -23,9 +23,13 @@ class Newcard : AppCompatActivity() {
         binding = ActivityNewcardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val data = intent.getSerializableExtra("data") as subcatmodel
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         parentLayout = findViewById(android.R.id.content)
+
+        var data = subcatmodel()
+        if(intent.getSerializableExtra("data") != null) {
+            data = intent.getSerializableExtra("data") as subcatmodel
+        }
 
         binding.add.setOnClickListener {
 

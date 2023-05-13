@@ -14,6 +14,7 @@ import com.google.firebase.database.ValueEventListener
 import java.util.*
 
 class SubCat : AppCompatActivity() {
+    // class variables
 
     lateinit var binding: ActivitySubcatBinding
     private lateinit var catdata : ArrayList<subcatmodel>

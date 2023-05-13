@@ -38,9 +38,8 @@ class cardadapter(private var items: ArrayList<cardmodel>, private var context: 
             val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
             constants.database.child("card").child(sharedPreferences.getString("mobile","").toString())
                 .child(key[position]).removeValue().addOnCompleteListener {
-                    items.removeAt(position)
-                    key.removeAt(position)
-                    notifyItemRemoved(position)
+                    items.clear()
+                    key.clear()
                     notifyDataSetChanged()
                 }
         }

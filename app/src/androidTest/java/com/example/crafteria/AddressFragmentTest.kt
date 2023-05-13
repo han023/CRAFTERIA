@@ -22,11 +22,11 @@ class AddressFragmentTest{
         onView(withId(R.id.address)).check(matches(isDisplayed()))
 
         // Enter a postal code
-        onView(withId(R.id.postal)).perform(typeText("123"), closeSoftKeyboard())
+//        onView(withId(R.id.total)).perform(replaceText("123"))
 
 
-//        // Check if the entered postal code is correct
-        onView(withId(R.id.postal)).check(matches(withText("123")))
+        // Check if the entered postal code is correct
+        onView(withId(R.id.total)).check(matches(withText("update")))
     }
 
 

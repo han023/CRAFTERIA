@@ -1,5 +1,5 @@
 package com.example.crafteria.homefragment
-
+// Below are library files that I used in my code
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -41,6 +41,8 @@ class CartFragment : Fragment() {
         sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
         binding.searchView.clearFocus()
+
+        // Set an OnQueryTextListener for the SearchView
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -65,7 +67,7 @@ class CartFragment : Fragment() {
         return binding.root
     }
 
-
+    // Function to filter the list based on search text
     private fun filterlist(newText: String?) {
         if(newText != null){
             val filterlist = ArrayList<subcatmodel>()
@@ -81,7 +83,7 @@ class CartFragment : Fragment() {
 
         }
     }
-
+    // Function to retrieve data from Firebase Realtime Database
     private fun getdata() {
         constants.database.child("cart").child(sharedPreferences.getString("mobile","").toString())
             .addValueEventListener(object : ValueEventListener {

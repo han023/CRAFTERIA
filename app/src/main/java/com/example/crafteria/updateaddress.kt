@@ -13,9 +13,15 @@ import com.example.crafteria.models.registarmodel
 import com.google.android.material.snackbar.Snackbar
 
 class updateaddress : AppCompatActivity() {
+    // class variables
 
-    private lateinit var binding:ActivityUpdateaddressBinding
-    lateinit var sharedPreferences : SharedPreferences
+    // Declare a variable for the binding of the activity_updateaddress layout.
+    private lateinit var binding: ActivityUpdateaddressBinding
+
+    // Declare a variable for accessing the shared preferences.
+    lateinit var sharedPreferences: SharedPreferences
+
+    // Declare a variable for the parent layout of the activity.
     private lateinit var parentLayout: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +38,7 @@ class updateaddress : AppCompatActivity() {
         if (data.address != ""){
             val string = data.address
             val list = string.split(",@#", ".")
-
+            // setting tests for lines of address, postal code and city
             binding.line1.setText(list[0])
             binding.line2.setText(list[1])
             binding.postal.setText(list[2])
@@ -41,11 +47,13 @@ class updateaddress : AppCompatActivity() {
 
 
         binding.registarasseller.setOnClickListener {
+            // setting texts in case of registering
             val line1 = binding.line1.text.toString().trim()
             val line2 = binding.line2.text.toString().trim()
             val postal = binding.postal.text.toString().trim()
             val city = binding.city.text.toString().trim()
 
+           // validations
             if (line1.isEmpty() || line2.isEmpty() || postal.isEmpty() || city.isEmpty()){
                 Snackbar.make(parentLayout, "fill all fields", Snackbar.LENGTH_SHORT).show()
             } else if(postal.length != 5){

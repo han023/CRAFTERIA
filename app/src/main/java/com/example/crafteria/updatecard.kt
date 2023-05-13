@@ -13,33 +13,39 @@ import com.example.crafteria.models.subcatmodel
 import com.google.android.material.snackbar.Snackbar
 
 class updatecard : AppCompatActivity() {
+    // class variables
 
     private lateinit var binding:ActivityUpdatecardBinding
     private lateinit var parentLayout: View
     lateinit var sharedPreferences : SharedPreferences
+
+
+
+    // functions section
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUpdatecardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        // getting data
         val data = intent.getSerializableExtra("data") as subcatmodel
         val card = intent.getSerializableExtra("card") as cardmodel
         val keyy = intent.getStringExtra("key").toString()
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         parentLayout = findViewById(android.R.id.content)
 
-
+        // setting data
         binding.name.setText(card.name)
         binding.exp.setText(card.exp)
         binding.number.setText(card.cardnumber)
-
+       // calling add button
         binding.add.setOnClickListener {
 
             val name = binding.name.text.toString().trim()
             val number = binding.number.text.toString().trim()
             val exp = binding.exp.text.toString().trim()
+            // validations for app
 
             if (name.isEmpty() || number.isEmpty() || exp.isEmpty()){
                 Snackbar.make(parentLayout, "fill all fields", Snackbar.LENGTH_SHORT).show()

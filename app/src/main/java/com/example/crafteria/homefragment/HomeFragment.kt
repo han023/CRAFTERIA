@@ -10,19 +10,23 @@ import com.example.crafteria.databinding.FragmentHomeBinding
 
 
 class HomeFragment : Fragment() {
+    // variables of HomeFragment class
 
     private lateinit var binding: FragmentHomeBinding
 
+    // function to create view of fragment
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-
+        // action to take if user clicks on profile option
         binding.profile.setOnClickListener {
             replacefragment(AccountFragment())
         }
+        // action to take if user clicks on cart option
         binding.cart.setOnClickListener {
             replacefragment(CartFragment())
         }
+        // no actions for delivery and payment
         binding.delivery.setOnClickListener {  }
         binding.payment.setOnClickListener {  }
 
@@ -30,6 +34,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun replacefragment(fragment:Fragment){
+        // this function is actually used to replace frame layout with fragment using fragment manager
 
         val fragmentmanger = requireActivity().supportFragmentManager
         val fragmenttransaction = fragmentmanger.beginTransaction()

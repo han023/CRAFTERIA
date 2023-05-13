@@ -15,18 +15,33 @@ import com.google.android.material.snackbar.Snackbar
 
 class FullItemView : AppCompatActivity() {
 
-    private lateinit var binding:ActivityFullitemviewBinding
-    private lateinit var sharedPreferences : SharedPreferences
-    private lateinit var parentLayout: View
+    private lateinit var binding: ActivityFullitemviewBinding // Holds the references to views in the activity's layout using View Binding.
+
+    private lateinit var sharedPreferences: SharedPreferences // Used to store and retrieve shared preferences data.
+
+    private lateinit var parentLayout: View // Represents the root view of the activity's layout.
+
 
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Call the superclass onCreate method to perform necessary initialization.
         super.onCreate(savedInstanceState)
+        // Inflate the layout for this activity using the ActivityFullitemviewBinding.
         binding = ActivityFullitemviewBinding.inflate(layoutInflater)
+
+        // Set the content view of the activity to the root view of the binding.
         setContentView(binding.root)
 
+        // The activity layout is inflated and set as the content view.
+
+       // Get the SharedPreferences instance for "MyPrefs" with private mode.
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+
+// Find the root view of the activity layout using its ID "android.R.id.content".
+// This view will be used as the parent layout for displaying Snackbars.
         parentLayout = findViewById(android.R.id.content)
+
+// Get the serialized "data" object from the intent and cast it to the subcatmodel class.
         val data = intent.getSerializableExtra("data") as subcatmodel
 
         Glide
@@ -35,6 +50,7 @@ class FullItemView : AppCompatActivity() {
             .centerCrop()
             .placeholder(R.drawable.cart)
             .into(binding.mainimg)
+        // setting text of title and price
 
         binding.title.text = data.title
         binding.price.text = data.price

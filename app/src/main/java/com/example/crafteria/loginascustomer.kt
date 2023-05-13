@@ -17,19 +17,33 @@ class Loginascustomer : AppCompatActivity() {
     lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+// Call the superclass's onCreate() method to perform necessary initialization.
         super.onCreate(savedInstanceState)
+
+// Inflate the activity layout using the ActivityLoginascustomerBinding.
         binding = ActivityLoginascustomerBinding.inflate(layoutInflater)
+
+// Set the root view of the activity layout as the content view.
         setContentView(binding.root)
 
+// Get the SharedPreferences instance for "MyPrefs" with private mode.
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+
+// Find the root view of the activity layout using its ID "android.R.id.content".
+// This view will be used as the parent layout for displaying Snackbars.
         parentLayout = findViewById(android.R.id.content)
 
         binding.loginascustomer.setOnClickListener{
-
+            // Get the text entered in the loginascustemail EditText and remove any leading or trailing whitespace.
             val email = binding.loginascustemail.text.toString().trim()
+
+// Get the text entered in the loginascustpassword EditText and remove any leading or trailing whitespace.
             val pass = binding.loginascustpassword.text.toString().trim()
 
+// Obtain the email and password entered by the user for authentication.
 
+        // validations
             if (email.isEmpty() || pass.isEmpty()){
                 Snackbar.make(parentLayout, "fill all fields", Snackbar.LENGTH_SHORT).show()
             } else if(!email.contains('@')){
@@ -59,7 +73,7 @@ class Loginascustomer : AppCompatActivity() {
             }
 
         }
-
+        //register as a customer
         binding.registarascustomer.setOnClickListener{
             startActivity(Intent(this@Loginascustomer, Registarasaseller::class.java))
         }

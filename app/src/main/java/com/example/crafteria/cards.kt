@@ -54,6 +54,7 @@ class Cards : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()){  // in case condition is true then execute below body
                         val key = ArrayList<String>()
+                        catdata.clear()
                         for (catsnap in snapshot.children){
                             key.add(catsnap.key.toString());
                             val cat = catsnap.getValue(cardmodel::class.java)

@@ -27,8 +27,12 @@ class HomeFragment : Fragment() {
             replacefragment(CartFragment())
         }
         // no actions for delivery and payment
-        binding.delivery.setOnClickListener {  }
-        binding.payment.setOnClickListener {  }
+        binding.delivery.setOnClickListener {
+            replacefragment(AddressFragment())
+        }
+        binding.payment.setOnClickListener {
+            replacefragment(CartFragment())
+        }
 
         return binding.root
     }

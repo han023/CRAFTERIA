@@ -84,9 +84,7 @@ class AccountFragment : Fragment() {
 
 
         binding.def.setOnClickListener {
-            val intent = Intent(requireContext(),updateaddress::class.java)
-            intent.putExtra("data", data)
-            startActivity(intent)
+            replacefragment(AddressFragment())
         }
 
         binding.delete.setOnClickListener {
@@ -122,6 +120,16 @@ class AccountFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun replacefragment(fragment:Fragment){
+        // this function is actually used to replace frame layout with fragment using fragment manager
+
+        val fragmentmanger = requireActivity().supportFragmentManager
+        val fragmenttransaction = fragmentmanger.beginTransaction()
+        fragmenttransaction.replace(R.id.framlayout,fragment)
+        fragmenttransaction.commit()
+
     }
 
 

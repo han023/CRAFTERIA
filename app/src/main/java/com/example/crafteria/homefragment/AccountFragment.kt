@@ -84,7 +84,9 @@ class AccountFragment : Fragment() {
 
 
         binding.def.setOnClickListener {
-            replacefragment(AddressFragment())
+            val intent = Intent(requireContext(),updateaddress::class.java)
+            intent.putExtra("data", data)
+            startActivity(intent)
         }
 
         binding.delete.setOnClickListener {
@@ -120,16 +122,6 @@ class AccountFragment : Fragment() {
         }
 
         return binding.root
-    }
-
-
-    private fun replacefragment(fragment:Fragment){
-
-        val fragmentmanger = requireActivity().supportFragmentManager
-        val fragmenttransaction = fragmentmanger.beginTransaction()
-        fragmenttransaction.replace(R.id.framlayout,fragment)
-        fragmenttransaction.commit()
-
     }
 
 

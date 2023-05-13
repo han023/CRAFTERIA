@@ -38,12 +38,19 @@ class AddressFragment : Fragment() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()){
                         address = snapshot.value.toString()
-                        val list = address.split(",@#", ".")
+                        if(address != ""){
+                            val list = address.split(",@#", ".")
 
-                        binding.line1.setText(list[0])
-                        binding.line2.setText(list[1])
-                        binding.postal.setText(list[2])
-                        binding.city.setText(list[3])
+                            binding.line1.setText(list[0])
+                            binding.line2.setText(list[1])
+                            binding.postal.setText(list[2])
+                            binding.city.setText(list[3])
+                        }else{
+                            binding.line1.setText("")
+                            binding.line2.setText("")
+                            binding.postal.setText("")
+                            binding.city.setText("")
+                        }
                     }else{
                         address = ""
                         binding.line1.setText("")

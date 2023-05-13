@@ -39,7 +39,7 @@ class Registarasaseller : AppCompatActivity() {
             if (firstname.isEmpty() || lastname.isEmpty() || mobile.isEmpty() || email.isEmpty() ||
                 password.isEmpty() || confirmpass.isEmpty()){
                 Snackbar.make(parentLayout, "Fill All Fields", Snackbar.LENGTH_SHORT).show()
-            } else if (mobile.length != 12){
+            } else if (mobile.length != 10){
                 Snackbar.make(parentLayout, "Mobile number not correct", Snackbar.LENGTH_SHORT).show()
             } else if(password.length < 6){
                 Snackbar.make(parentLayout, "Password atlest 6 character long", Snackbar.LENGTH_SHORT).show()
